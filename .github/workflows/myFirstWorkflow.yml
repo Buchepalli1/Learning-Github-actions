@@ -9,5 +9,6 @@ jobs:
     steps:
       - name: Running single command in job1
         run: echo "Hi this is my first Github workflow"
-      - name: Checking OS release for Github hosted runner
-        run: cat /etc/os-release
+      - name: Checking Windows version
+        shell: pwsh
+        run: Get-CimInstance Win32_OperatingSystem | Select-Object Caption, Version, BuildNumber
